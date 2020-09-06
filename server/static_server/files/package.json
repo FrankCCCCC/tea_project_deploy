@@ -1,0 +1,26 @@
+{
+  "name": "static_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "static.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node static.js"
+  },
+  "author": "SHC",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "node-fetch": "^2.6.0",
+    "pg": "^7.17.1",
+    "pg-promise": "^10.3.5",
+    "remarkable": "^2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.0.1",
+    "should": "^13.2.3"
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "playdb",
+            "dialect": "PostgreSQL",
+            "name": "playdb",
+            "password": "0910shc",
+            "port": 5432,
+            "server": "localhost",
+            "username": "postgres"
+        },
+        {
+            "database": "playdb",
+            "dialect": "PostgreSQL",
+            "name": "rpg",
+            "password": "0910shc",
+            "port": 5432,
+            "server": "localhost",
+            "username": "postgres"
+        }
+    ]
+}

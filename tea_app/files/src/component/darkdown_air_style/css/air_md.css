@@ -1,0 +1,212 @@
+@media print {
+  .md *,
+  .md *:before,
+  .md *:after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    /* font-family: inherit; */
+    text-align: center;
+  }
+
+  .md div{
+    font-family: inherit;
+    text-align: center;
+    color: #444;
+    /* font-family: 'Open Sans', Helvetica, sans-serif;s */
+    font-weight: 300;
+    margin: 6rem auto 1rem;
+    max-width: 48rem;
+    line-height: 1.85;
+  }
+
+  .md a,
+  .md a:visited {
+    text-decoration: underline;
+  }
+
+  .md a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .md abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .md a[href^="#"]:after,
+  .md a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  .md pre,
+  .md blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  .md thead {
+    display: table-header-group;
+  }
+
+  .md tr,
+  .md img {
+    page-break-inside: avoid;
+  }
+
+  .md img {
+    max-width: 100% !important;
+  }
+
+  .md p,
+  .md h2,
+  .md h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .md h2,
+  .md h3 {
+    page-break-after: avoid;
+  }
+}
+
+.md html {
+  font-size: 12px;
+}
+
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
+  .md html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .md html {
+    font-size: 16px;
+  }
+}
+
+/* body.md{
+  line-height: 1.85;
+} */
+
+.md p,
+.md .air-p {
+  font-size: 1rem;
+  margin-bottom: 1.3rem;
+}
+
+.md h1,
+.md .air-h1,
+.md h2,
+.md .air-h2,
+.md h3,
+.md .air-h3,
+.md h4,
+.md .air-h4 {
+  margin: 1.414rem 0 .5rem;
+  font-weight: inherit;
+  line-height: 1.42;
+}
+
+.md h1,
+.md .air-h1 {
+  margin-top: 0;
+  font-size: 3.998rem;
+}
+
+.md h2,
+.md .air-h2 {
+  font-size: 2.827rem;
+}
+
+.md h3,
+.md .air-h3 {
+  font-size: 1.999rem;
+}
+
+.md h4,
+.md .air-h4 {
+  font-size: 1.414rem;
+}
+
+.md h5,
+.md .air-h5 {
+  font-size: 1.121rem;
+}
+
+.md h6,
+.md .air-h6 {
+  font-size: .88rem;
+}
+
+.md small,
+.md .air-small {
+  font-size: .707em;
+}
+
+/* https://github.com/mrmrs/fluidity */
+
+.md img,
+.md canvas,
+.md iframe,
+.md video,
+.md svg,
+.md select,
+.md textarea {
+  max-width: 100%;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,300);
+
+/* body.md {
+  color: #444;
+  font-family: 'Open Sans', Helvetica, sans-serif;s
+  font-weight: 300;
+  margin: 6rem auto 1rem;
+  max-width: 48rem;
+  text-align: center;
+} */
+
+.md img {
+  border-radius: 50%;
+  height: 200px;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.md a,
+.md a:visited {
+  color: #3498db;
+}
+
+.md a:hover,
+.md a:focus,
+.md a:active {
+  color: #2980b9;
+}
+
+.md pre {
+  background-color: #fafafa;
+  padding: 1rem;
+  text-align: left;
+}
+
+.md blockquote {
+  margin: 0;
+  border-left: 5px solid #7a7a7a;
+  font-style: italic;
+  padding: 1.33em;
+  text-align: left;
+}
+
+.md ul,
+.md ol,
+.md li {
+  text-align: left;
+}
+
+.md p {
+  color: #777;
+}

@@ -1,0 +1,108 @@
+version: '3.1'
+services:
+
+  static:
+    container_name: static
+    build:
+      context: ./server/static_server
+    ports:
+      - "5000:80"
+    environment: 
+      port: 5000
+    networks:
+      - tea-network
+    deploy:
+      replicas: 6
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  # static2:
+  #   container_name: static2
+  #   build:
+  #     context: ./server/static_server
+  #   ports:
+  #     - "5002:5000"
+  #   environment: 
+  #     port: 5000
+  #   networks:
+  #     - tea-network
+  
+  # nginx:
+  #   container_name: nginx
+  #   build:
+  #     context: ./server/static_server/nginx
+  #   depends_on:
+  #     - static1
+  #     - static2
+  #   ports:
+  #     - 5000:80
+  #   networks:
+  #     - tea-network
+  
+  app:
+    container_name: app
+    build:
+      context: ./tea_app
+    restart: always
+    ports:
+      - 3000:80
+    networks:
+      - tea-network
+    deploy:
+      replicas: 6
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  postgres:
+    container_name: database
+    build: 
+      context: ./server/db_server/postgres
+    ports:
+      - "35432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 0910shc
+      POSTGRES_DB: playdb
+    networks:
+      - tea-network
+
+  server:
+    container_name: server
+    build: 
+      context: ./server/db_server
+    command: bash -c 'while !</dev/tcp/postgres/5432; do sleep 1; done; npm run start'
+    depends_on:
+      - postgres
+    # links:
+      # - db
+    ports:
+      - "8000:8000"
+    environment:
+      SEQ_DB: playdb
+      SEQ_USER: postgres
+      SEQ_PW: 0910shc
+      DATABASE_URL: postgres://postgres:0910shc@postgres:5432/playdb
+      NODE_ENV: development
+      PORT: 8000
+      # DATABASE_URL: db
+      # - DB_HOST=db
+    networks:
+      - tea-network
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - tea-network
+
+networks:
+  tea-network:
